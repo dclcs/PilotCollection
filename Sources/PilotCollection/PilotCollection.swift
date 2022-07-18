@@ -1,6 +1,8 @@
-public struct PilotCollection {
-    public private(set) var text = "Hello, World!"
+import UIKit
 
-    public init() {
-    }
+
+public class PilotCollectionView: UICollectionView {
+    
 }
+
+
