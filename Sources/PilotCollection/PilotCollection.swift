@@ -2,15 +2,18 @@ import UIKit
 
 
 public class PilotCollectionView: UICollectionView {
-    
+    var text: String = "Test"
     //MARK: PilotCollectionLayout
-    public var listLayout : UICollectionViewLayout? = nil
+    public var listLayout : PilotCollectionLayout? = nil
     
     
     //MARK: init
     public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
-        
+    }
+    
+    convenience init(frame: CGRect, listCollectionViewLayout collectionViewLayout: PilotCollectionLayout) {
+        self.init(frame: frame, collectionViewLayout: collectionViewLayout)
     }
     
     required init?(coder: NSCoder) {
@@ -61,7 +64,9 @@ public class PilotCollectionView: UICollectionView {
     
     private func didModifySection(section: Int) {
         //TODO: 添加FlowLayout
+        
 //        self.listLayout.didModifySection(section)
+        self.listLayout?.didModifySection(modifiedSection: section)
     }
     //MARK: modified index path
     private func didModifyIndexPaths(indexPaths: [IndexPath]) {
