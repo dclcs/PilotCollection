@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-@objc protocol PilotCollectionDelegateLayout: UICollectionViewDelegateFlowLayout {
+@objc protocol PilotCollectionViewDelegateLayout: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, customizedInitalLayoutAttributes attributes: UICollectionViewLayoutAttributes, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes;
     

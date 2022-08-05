@@ -10,7 +10,6 @@ import UIKit
 
 extension UIScrollView {
     func pilot_contentInset() -> UIEdgeInsets {
-        
         if #available(iOS 11.0, tvOS 11.0, * ) {
             return self.adjustedContentInset
         } else {

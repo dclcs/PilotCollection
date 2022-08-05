@@ -4,7 +4,7 @@ import UIKit
 public class PilotCollectionView: UICollectionView {
     var text: String = "Test"
     //MARK: PilotCollectionLayout
-    public var listLayout : PilotCollectionLayout? = nil
+    public var listLayout : PilotCollectionViewLayout? = nil
     
     
     //MARK: init
@@ -12,7 +12,7 @@ public class PilotCollectionView: UICollectionView {
         super.init(frame: frame, collectionViewLayout: layout)
     }
     
-    convenience init(frame: CGRect, listCollectionViewLayout collectionViewLayout: PilotCollectionLayout) {
+    convenience init(frame: CGRect, listCollectionViewLayout collectionViewLayout: PilotCollectionViewLayout) {
         self.init(frame: frame, collectionViewLayout: collectionViewLayout)
     }
     

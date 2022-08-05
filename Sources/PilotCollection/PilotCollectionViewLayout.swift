@@ -123,7 +123,7 @@ class PilotCollectionLayoutInvalidationContext: UICollectionViewFlowLayoutInvali
     var pi_invalidateAllAttributes: Bool = false
 }
 
-public class PilotCollectionLayout: UICollectionViewLayout, PilotCollectionLayoutCompatible {
+public class PilotCollectionViewLayout: UICollectionViewLayout, PilotCollectionLayoutCompatible {
     var scrollDirection: UICollectionView.ScrollDirection = .vertical
     var stickyHeaderYOffset: CGFloat = 0.0
     var showHeaderWhenEmpty: Bool = false
@@ -165,7 +165,7 @@ public class PilotCollectionLayout: UICollectionViewLayout, PilotCollectionLayou
     public override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         guard let attributes = super.initialLayoutAttributesForAppearingItem(at: itemIndexPath), let collectionView = self.collectionView else { return nil }
         
-        if let delegate = collectionView.delegate as? PilotCollectionDelegateLayout,  delegate.responds(to: #selector(PilotCollectionDelegateLayout.collectionView(_:layout:customizedInitalLayoutAttributes:at:))){
+        if let delegate = collectionView.delegate as? PilotCollectionViewDelegateLayout,  delegate.responds(to: #selector(PilotCollectionViewDelegateLayout.collectionView(_:layout:customizedInitalLayoutAttributes:at:))){
             return delegate.collectionView(collectionView, layout: self, customizedInitalLayoutAttributes: attributes, at: itemIndexPath)
         }
         return attributes
@@ -174,7 +174,7 @@ public class PilotCollectionLayout: UICollectionViewLayout, PilotCollectionLayou
     public override func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         guard let attributes = super.initialLayoutAttributesForAppearingItem(at: itemIndexPath), let collectionView = self.collectionView else { return nil }
         
-        if let delegate = collectionView.delegate as? PilotCollectionDelegateLayout, delegate.responds(to: #selector(PilotCollectionDelegateLayout.collectionView(_:layout:customizedFinalLayoutAttributes:at:))) {
+        if let delegate = collectionView.delegate as? PilotCollectionViewDelegateLayout, delegate.responds(to: #selector(PilotCollectionViewDelegateLayout.collectionView(_:layout:customizedFinalLayoutAttributes:at:))) {
             return delegate.collectionView(collectionView, layout: self, customizedFinalLayoutAttributes: attributes, at: itemIndexPath)
         } else {
             return attributes
